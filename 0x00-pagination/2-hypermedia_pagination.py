@@ -42,7 +42,7 @@ class Server:
         if start_idx >= len(dataset):
             return []
         return dataset[start_idx:end_idx]
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
         This method takes the same arguments (and defaults)
