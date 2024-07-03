@@ -45,7 +45,6 @@ def before_request() -> None:
     """Executed before each req"""
     user = get_user()
     g.user = user
-    
 
 
 @babel.localeselector
