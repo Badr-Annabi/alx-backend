@@ -6,7 +6,7 @@ This file we'll Create a single
 and “Hello world” as header (<h1>)
 """
 from flask_babel import Babel
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 
 
 class Config:
