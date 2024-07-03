@@ -33,17 +33,17 @@ users = {
 
 def get_user():
     """return user dict or None"""
-    login_id = request.args.get('login_as')
+    login_id = request.args.get('login_as', type=int)
     if login_id:
-        return users.get(int(login_id))
+        return users.get(login_id)
     return None
 
 
 @app.before_request
 def before_request() -> None:
     """Executed before each req"""
-    user = get_user()
-    g.user = user
+    g.user = get_user()
+    
 
 
 @babel.localeselector
@@ -52,13 +52,15 @@ def get_locale() -> str:
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         return locale
+    if g.user and g.user.get('locale') in app.config['LANGUAGES']:
+        return g.user.get('locale')
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def index() -> str:
     """renders 0-index.html"""
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
