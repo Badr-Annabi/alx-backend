@@ -13,7 +13,7 @@ class Config:
     """This class has a LANGUAGES class attribute
     equal to ["en", "fr"]"""
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCAL = "en"
+    BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
